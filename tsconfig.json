@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "target": "es2018",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "sourceMap": true,
+      "noImplicitAny": false,
+      "outDir": "tmp",
+      "pretty": true,
+      "experimentalDecorators": true,
+      "noStrictGenericChecks": true,
+    },
+    "exclude": [
+      "node_modules",
+      "plugins.ts",
+      "tmp"
+    ]
+  }
+  

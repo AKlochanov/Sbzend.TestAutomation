@@ -1,0 +1,33 @@
+{
+  "name": "example-typescript",
+  "private": true,
+  "version": "1.0.0",
+  "description": "a typescript example",
+  "author": {
+    "name": "Alex K",
+    "email": "a.klochanov@gmail.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "clean:tmp": "rimraf tmp/*",
+    "compile": "tsc",
+    "pretest": "npm run clean:tmp && npm run compile",
+    "test": "protractor tmp/protractor.conf.js",
+    "postinstall": "npm run webdriver:update && npm run clean:tmp",
+    "webdriver:update": "npx webdriver-manager update"
+  },
+  "dependencies": {
+    "jasmine": "3.5.0",
+    "jasmine-reporters": "2.3.2",
+    "jasmine-spec-reporter": "5.0.1",
+    "make-dir": "3.0.2",
+    "protractor": "5.4.3",
+    "typescript": "3.8.3",
+    "tslint": "6.1.1",
+    "rimraf": "3.0.2"
+  },
+  "devDependencies": {
+    "@types/jasmine": "3.5.10",
+    "@types/node": "13.11.0"
+  }
+}

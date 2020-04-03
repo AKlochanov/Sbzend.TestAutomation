@@ -1,0 +1,9 @@
+{
+    "prettier.printWidth": 140,
+    "prettier.tabWidth": 4,
+    "prettier.trailingComma": "all",
+    "files.autoSave": "afterDelay",
+    "prettier.singleQuote": true,
+    "window.zoomLevel": 0,
+    "cSpell.words": ["pwsh"]
+}
