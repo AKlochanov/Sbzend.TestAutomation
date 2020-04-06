@@ -9,14 +9,17 @@
   },
   "license": "MIT",
   "scripts": {
-    "clean:tmp": "rimraf tmp/*",
+    "clean": "npm run clean:tmp",
     "compile": "tsc",
+    "setup": "npm run clean && npm run compile",
+    "clean:tmp": "rimraf tmp/*",
     "pretest": "npm run clean:tmp && npm run compile",
     "test": "protractor tmp/protractor.conf.js",
     "postinstall": "npm run webdriver:update && npm run clean:tmp",
     "webdriver:update": "npx webdriver-manager update"
   },
   "dependencies": {
+    "faker": "4.1.0",
     "jasmine": "3.5.0",
     "jasmine-reporters": "2.3.2",
     "jasmine-spec-reporter": "5.0.1",
@@ -28,6 +31,7 @@
   },
   "devDependencies": {
     "@types/jasmine": "3.5.10",
-    "@types/node": "13.11.0"
+    "@types/node": "13.11.0",
+    "@types/faker": "4.1.10"
   }
 }

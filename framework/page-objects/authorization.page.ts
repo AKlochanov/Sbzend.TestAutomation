@@ -1,6 +1,6 @@
 import { ElementFinder, by, element } from 'protractor';
 
-export class LoginPage {
+export class AuthorizationPage {
     private readonly emailInputElement: ElementFinder = element(by.css(`input[name='email']`));
     private readonly passwordInputElement: ElementFinder = element(by.css(`input[name='password']`));
     private readonly loginButtonElement: ElementFinder = element(by.css(`button[type='submit']`));
