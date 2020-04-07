@@ -1,10 +1,11 @@
 import { IAuthorizationDialogue } from '../interfaces/authorization.dialogue.interface';
-import { User } from '../models/user';
+import { UserProfile } from '../models/user.profile';
 import { AuthorizationPage } from '../page-objects/authorization.page';
 import { HomePage } from '../page-objects/home.page';
 import { NavigationPage } from '../page-objects/navigation.page';
 import { UserProfileDropDownMenu } from '../page-objects/user.profile.drop.down.menu.page';
 import { SnackBarController } from './snackbar.controller';
+import { browser } from 'protractor';
 
 const homePage = new HomePage();
 const navigationPage = new NavigationPage();
@@ -12,7 +13,7 @@ const authorizationPage = new AuthorizationPage();
 const userProfileDropDownMenu = new UserProfileDropDownMenu();
 
 export class NavigationController {
-    static async login(user: User, isValidationRequired = false): Promise<IAuthorizationDialogue> {
+    static async login(user: UserProfile, isValidationRequired = false): Promise<IAuthorizationDialogue> {
         console.log(`Login to app as ${user.email}`);
 
         const dialogue: IAuthorizationDialogue = {};
@@ -40,7 +41,8 @@ export class NavigationController {
     static async logout(): Promise<void> {
         console.log(`Log out...`);
         await navigationPage.openUserDropDown();
-        return userProfileDropDownMenu.clickLogOut();
+        await userProfileDropDownMenu.clickLogOut();
+        return browser.waitForAngular();
     }
 
     static async goToUserProfile(): Promise<void> {
@@ -49,7 +51,7 @@ export class NavigationController {
         await userProfileDropDownMenu.openUserProfile();
     }
 
-    static async isUserLoggedIn(user: User) {
+    static async isUserLoggedIn(user: UserProfile) {
         const userEmail: string = (await navigationPage.getProfileText()).toLocaleLowerCase();
 
         if (userEmail === user.email) {

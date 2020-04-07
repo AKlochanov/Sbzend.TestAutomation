@@ -1,9 +1,9 @@
-import { User } from '../models/user';
 import * as fakeDataGenerator from 'faker';
+import { UserProfile } from '../models/user.profile';
 
 export class RandomData {
-    static getUser(): User {
-        const user: User = {};
+    static getUser(): UserProfile {
+        const user: UserProfile = {};
 
         user.email = fakeDataGenerator.internet.email();
         user.password = fakeDataGenerator.internet.password();
