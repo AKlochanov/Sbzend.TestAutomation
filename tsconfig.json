@@ -7,7 +7,6 @@
       "noImplicitAny": false,
       "outDir": "tmp",
       "pretty": true,
-      "experimentalDecorators": true,
       "noStrictGenericChecks": true,
     },
     "exclude": [
