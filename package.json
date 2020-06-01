@@ -7,8 +7,10 @@
     "name": "Alex K",
     "email": "a.klochanov@gmail.com"
   },
-  "license": "MIT",
+  "license": "TBD",
   "scripts": {
+    "allure:renderReport": "npx allure-commandline generate ./test-results/allure-results --clean --output ./test-results/allure-report",
+    "allure:viewReport": "npx allure-commandline open ./test-results/allure-report --host 127.0.0.1 --port 8080",
     "clean": "npm run clean:tmp",
     "compile": "tsc",
     "setup": "npm run clean && npm run compile",
@@ -16,22 +18,25 @@
     "pretest": "npm run clean:tmp && npm run compile",
     "test": "protractor tmp/protractor.conf.js",
     "postinstall": "npm run webdriver:update && npm run clean:tmp",
-    "webdriver:update": "npx webdriver-manager update"
+    "webdriver:update": "npx webdriver-manager update",
+    "posttest": "npm run allure:renderReport && npm run allure:viewReport"
   },
   "dependencies": {
     "faker": "4.1.0",
     "jasmine": "3.5.0",
+    "jasmine-allure-reporter": "1.0.2",
     "jasmine-reporters": "2.3.2",
     "jasmine-spec-reporter": "5.0.1",
     "make-dir": "3.0.2",
     "protractor": "5.4.3",
-    "typescript": "3.8.3",
+    "rimraf": "3.0.2",
     "tslint": "6.1.1",
-    "rimraf": "3.0.2"
+    "typescript": "3.8.3"
   },
   "devDependencies": {
+    "@types/faker": "4.1.10",
     "@types/jasmine": "3.5.10",
     "@types/node": "13.11.0",
-    "@types/faker": "4.1.10"
+    "allure-commandline": "2.13.0"
   }
 }

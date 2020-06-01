@@ -30,6 +30,12 @@ export let config: Config = {
 
     noGlobals: true,
     async onPrepare() {
+        var AllureReporter = require('jasmine-allure-reporter');
+        jasmine.getEnv().addReporter(
+            new AllureReporter({
+                resultsDir: CONSTANTS.ALLURE_RESULTS_FOLDER,
+            }),
+        );
         jasmine.getEnv().addReporter(
             new SpecReporter({
                 customProcessors: [],
@@ -54,6 +60,17 @@ export let config: Config = {
                 },
             }),
         );
+        exports.config = {
+            framework: 'jasmine2',
+            onPrepare: function () {
+                var AllureReporter = require('jasmine-allure-reporter');
+                jasmine.getEnv().addReporter(
+                    new AllureReporter({
+                        resultsDir: CONSTANTS.ALLURE_RESULTS_FOLDER,
+                    }),
+                );
+            },
+        };
     },
     jasmineNodeOpts: {
         showColors: true,
