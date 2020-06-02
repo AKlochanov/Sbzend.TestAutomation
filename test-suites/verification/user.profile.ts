@@ -22,7 +22,7 @@ describe('My profile page', () => {
         await NavigationController.logout();
     });
 
-    it('get user profile, view mode', async () => {
+    it('Get user profile, view mode', async () => {
         await NavigationController.login(registeredUser);
         await NavigationController.goToUserProfile();
 

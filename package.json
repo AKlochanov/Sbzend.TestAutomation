@@ -18,8 +18,7 @@
     "pretest": "npm run clean:tmp && npm run compile",
     "test": "protractor tmp/protractor.conf.js",
     "postinstall": "npm run webdriver:update && npm run clean:tmp",
-    "webdriver:update": "npx webdriver-manager update",
-    "posttest": "npm run allure:renderReport && npm run allure:viewReport"
+    "webdriver:update": "npx webdriver-manager update"
   },
   "dependencies": {
     "faker": "4.1.0",

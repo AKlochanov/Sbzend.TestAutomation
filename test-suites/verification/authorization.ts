@@ -12,14 +12,14 @@ const registeredUser: UserProfile = {
 
 const notRegisteredUser: UserProfile = RandomData.getUser();
 
-describe('authorization', () => {
-    it('authorization page, not registered user', async () => {
+describe('Authorization', () => {
+    it('Authorization page, not registered user', async () => {
         const actualDialogue: IAuthorizationDialogue = await NavigationController.login(notRegisteredUser, true);
 
         expect(actualDialogue.snackBarMessage).toEqual(CONSTANTS.SNACK_BAR_MESSAGE.incorrectCredentials);
     });
 
-    it('authorization page, registered user', async () => {
+    it('Authorization page, registered user', async () => {
         await NavigationController.login(registeredUser);
 
         expect(await NavigationController.isUserLoggedIn(registeredUser)).toBeTruthy();
